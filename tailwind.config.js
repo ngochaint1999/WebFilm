@@ -16,11 +16,15 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       backgroundColor: {
-        "primary": "rgba(15,15,15,.9)",
-        "secondary": "#424040",
-      }
+        primary: "rgba(15,15,15,.9)",
+        secondary: "#424040",
+        yellow: "#e4d804",
+      },
+      colors: {
+        blue: "#408BEA",
+        gray: "rgba(255,255,255,.2)",
+      },
     },
   },
   plugins: [],
 };
-
