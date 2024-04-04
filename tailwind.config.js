@@ -23,6 +23,7 @@ module.exports = {
       colors: {
         blue: "#408BEA",
         gray: "rgba(255,255,255,.2)",
+        whiteLight: "rgba(255,255,255,.8)",
       },
     },
   },

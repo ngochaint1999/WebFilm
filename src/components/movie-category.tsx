@@ -17,7 +17,7 @@ const MovieCategory: FC<MovieCategoryProps> = (props) => {
   const { title, movies, slidesPerView = 5 } = props;
   const swiperRef = useRef<SwiperCore>();
   return (
-    <div className="max-w-5xl mx-auto px-5">
+    <div className="max-w-[800px] mx-auto">
       <div className="flex items-center justify-between mb-6 mt-12">
         <h3 className="text-xl md:text-xl text-white pl-2.5 border-l-4 border-[#408bea]">
           {title}

@@ -1,6 +1,11 @@
-"use client";
 import React from "react";
-import { Icon } from "@iconify/react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaTwitter,
+} from "react-icons/fa6";
+
 import Link from "next/link";
 
 const Footer = () => {
@@ -117,7 +122,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="rounded-full bg-black aspect-square p-2.5 hover:text-primary duration-150"
           >
-            <Icon icon="ri:facebook-fill" height={16} className="text-white" />
+            <FaFacebookF height={16} className="text-white" />
           </Link>
           <Link
             href=""
@@ -125,7 +130,23 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="rounded-full bg-black aspect-square p-2.5 hover:text-primary duration-150"
           >
-            <Icon icon="mdi:instagram" height={16} className="text-white" />
+            <FaTwitter height={16} className="text-white" />
+          </Link>
+          <Link
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-black aspect-square p-2.5 hover:text-primary duration-150"
+          >
+            <FaInstagram height={16} className="text-white" />
+          </Link>
+          <Link
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-black aspect-square p-2.5 hover:text-primary duration-150"
+          >
+            <FaYoutube height={16} className="text-white" />
           </Link>
         </ul>
       </div>
