@@ -84,7 +84,7 @@ const Footer = () => {
     };
   }, []);
   return (
-    <footer className="p-10">
+    <footer className="p-10 md:block hidden">
       <div className="grid grid-rows-1 grid-flow-col gap-4 mb-10">
         <div className="text-[13px] text-gray">
           <span className="text-blue">Xemphim</span> - Trang xem phim Online với

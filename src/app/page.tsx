@@ -223,13 +223,13 @@ export default function Home() {
   ];
   return (
     <main className="flex min-h-screen flex-col items-center bg-secondary">
-      <div className="bg-primary mt-[74px] ">
+      <div className="bg-primary mt-[74px] container">
         <p className="text-center py-3 border border-yellow-600 text-white text-sm">
           Xem phim miễn phí chất lượng cao - Xemphim
         </p>
         {/* Quảng cáo  */}
 
-        <div className="flex">
+        <div className="md:flex block">
           <div className="w-full md:basis-2/3 lg:basis-2/3 xl:basis-2/3 2xl:basis-2/3 h-full border-r-[1px] border-gray p-[30px]">
             <AdvertisingSlide movies={AdvertisingData} />
             <MovieCategory title="Phim mới nổi bật" movies={FeaturedData} />

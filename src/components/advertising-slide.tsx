@@ -22,13 +22,18 @@ const AdvertisingSlide: FC<AdvertisingSlideProps> = ({
         breakpoints={{
           0: {
             spaceBetween: 15,
-            slidesPerView: 2,
-            slidesPerGroup: 2,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+          576: {
+            spaceBetween: 10,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
           },
           640: {
-            spaceBetween: 20,
-            slidesPerView: 3,
-            slidesPerGroup: 3,
+            spaceBetween: 10,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
           },
           1024: {
             spaceBetween: 25,

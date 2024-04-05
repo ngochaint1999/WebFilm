@@ -18,7 +18,7 @@ const MovieCategory: FC<MovieCategoryProps> = (props) => {
   const { title, movies, slidesPerView = 5 } = props;
 
   const swiperRef = useRef<SwiperCore>();
-  console.log(swiperRef);
+
   return (
     <div className="max-w-[800px] mx-auto">
       <div className="flex items-center justify-between mb-6 pt-12">
@@ -56,12 +56,17 @@ const MovieCategory: FC<MovieCategoryProps> = (props) => {
         }}
         breakpoints={{
           0: {
-            spaceBetween: 15,
-            slidesPerView: 2,
-            slidesPerGroup: 2,
+            spaceBetween: 0,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+          576: {
+            spaceBetween: 10,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
           640: {
-            spaceBetween: 20,
+            spaceBetween: 10,
             slidesPerView: 3,
             slidesPerGroup: 3,
           },
