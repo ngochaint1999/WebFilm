@@ -58,22 +58,18 @@ const MovieCategory: FC<MovieCategoryProps> = (props) => {
           0: {
             spaceBetween: 0,
             slidesPerView: 3,
-            slidesPerGroup: 3,
           },
           576: {
             spaceBetween: 10,
             slidesPerView: 3,
-            slidesPerGroup: 3,
           },
           640: {
             spaceBetween: 10,
             slidesPerView: 3,
-            slidesPerGroup: 3,
           },
           1024: {
             spaceBetween: 25,
             slidesPerView,
-            slidesPerGroup: slidesPerView,
           },
         }}
       >

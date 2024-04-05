@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Link from 'next/link'
 import {
   FaFacebookF,
   FaInstagram,
@@ -7,10 +7,8 @@ import {
   FaTwitter,
 } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa";
-import Link from "next/link";
 
 const Footer = () => {
-  const [scrollTop, setScrollTop] = useState(0);
 
   const dataNewMovie = [
     {
@@ -72,17 +70,6 @@ const Footer = () => {
       title: "Khiếu nại bản quyền",
     },
   ];
-  useEffect(() => {
-    const onScroll = () => {
-      setScrollTop(window.pageYOffset);
-    };
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
   return (
     <footer className="p-10 md:block hidden">
       <div className="grid grid-rows-1 grid-flow-col gap-4 mb-10">
@@ -161,12 +148,12 @@ const Footer = () => {
           >
             <FaYoutube height={16} className="text-white" />
           </Link>
-          <button
+          <Link
             className="rounded-full bg-black aspect-square p-2.5 hover:text-yellow duration-150"
-            onClick={() => window.scrollTo(0, 0)}
+            href="#"
           >
             <FaChevronUp className="text-white" />
-          </button>
+          </Link>
         </ul>
       </div>
     </footer>

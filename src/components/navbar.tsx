@@ -118,7 +118,7 @@ const MobileMenu = ({}: {}) => {
 
   return (
     <>
-      <button className="lg:hidden" onClick={() => setOpenMenu(true)}>
+      <button className="block lg:hidden" onClick={() => setOpenMenu(true)}>
         <FaAlignJustify className="text-white text-2xl" />
       </button>
       <div
@@ -227,12 +227,12 @@ const MobileMenu = ({}: {}) => {
 const Navbar = () => {
   return (
     <header className="border-b border-black py-4 px-4 sm:px-10 bg-primary w-full min-h-[70px] fixed top-0 left-0 flex items-center z-50">
-      <div className="flex flex-wrap justify-between items-center gap-x-2 max-lg:gap-y-6 w-full max-w-[1220px] mx-auto">
+      <div className="flex flex-wrap justify-between items-center gap-x-2 max-lg:gap-y-6 w-full max-w-7xl mx-auto">
         <div className="flex items-center">
           <p className="text-white">Logo</p>
           <div
             id="collapseMenu"
-            className="lg:!flex lg:ml-14 lg:space-x-5 max-lg:space-y-2 max-lg:hidden max-lg:py-4 max-lg:w-full md:flex hidden"
+            className="lg:ml-14 lg:space-x-5 max-lg:space-y-2 max-lg:hidden max-lg:py-4 max-lg:w-full lg:flex hidden"
           >
             {data?.map((item) => (
               <div
@@ -275,7 +275,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <form className="relative md:block hidden w-[340px]">
+        <form className="relative max-lg:hidden max-w-[340px]">
           <input
             type="text"
             placeholder="Tìm kiếm..."
