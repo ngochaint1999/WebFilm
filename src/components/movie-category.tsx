@@ -1,6 +1,7 @@
 "use client";
 import { FC, useRef } from "react";
-import { Icon } from "@iconify/react";
+
+import { FaCaretRight, FaCaretLeft } from "react-icons/fa6";
 import Link from "next/link";
 import MovieCard from "@/components/movie-card";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,10 +16,12 @@ type MovieCategoryProps = {
 
 const MovieCategory: FC<MovieCategoryProps> = (props) => {
   const { title, movies, slidesPerView = 5 } = props;
+
   const swiperRef = useRef<SwiperCore>();
+  console.log(swiperRef);
   return (
     <div className="max-w-[800px] mx-auto">
-      <div className="flex items-center justify-between mb-6 mt-12">
+      <div className="flex items-center justify-between mb-6 pt-12">
         <h3 className="text-xl md:text-xl text-white pl-2.5 border-l-4 border-[#408bea]">
           {title}
         </h3>
@@ -29,25 +32,28 @@ const MovieCategory: FC<MovieCategoryProps> = (props) => {
           >
             Xem thêm
           </Link>
-          <div className="flex items-center rounded-full border-2 border-white/10 text-white">
+          <div className="flex items-center  text-white">
             <button
-              className="px-3 py-1.5"
+              className="py-1.5"
               onClick={() => swiperRef.current?.slidePrev()}
             >
-              <Icon icon="icon-park-outline:left" height={24} />
+              <FaCaretLeft className="text-2xl" />
             </button>
-            <span className="w-0.5 h-6 rounded bg-white/10" />
+
             <button
-              className="px-3 py-1.5"
+              className="py-1.5"
               onClick={() => swiperRef.current?.slideNext()}
             >
-              <Icon icon="icon-park-outline:right" height={24} />
+              <FaCaretRight className="text-2xl" />
             </button>
           </div>
         </div>
       </div>
       <Swiper
         loop={true}
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
         breakpoints={{
           0: {
             spaceBetween: 15,

@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar";
 
 import "./globals.css";
-import "swiper/swiper-bundle.css";
+import "swiper/css";
 
 const inter = Inter({ subsets: ["latin"] });
 

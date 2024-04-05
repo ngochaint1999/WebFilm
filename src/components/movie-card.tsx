@@ -18,6 +18,7 @@ const MovieCard: FC<MovieCardProps> = ({ movie }) => {
             Nổi bật
           </span>
         </div>
+
         <Image src={movie.origin_url} alt="poster" className="image-movie" />
 
         <div className="absolute left-2 bottom-2 bg-blue pb-[5px] px-2.5">

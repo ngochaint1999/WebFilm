@@ -19,6 +19,11 @@ export type RecommendMovie = {
   srcImg: any;
 };
 
+export type Category = {
+  name: string;
+  slug: string;
+};
+
 export type AdvertisingMovie = {
   _id: string;
   name: string;

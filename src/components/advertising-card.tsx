@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AdvertisingMovie } from "@/types";
 
 type AdvertisingCardProps = {
@@ -8,8 +9,8 @@ type AdvertisingCardProps = {
 
 const AdvertisingCard: FC<AdvertisingCardProps> = ({ movie }) => {
   return (
-    <div className="relative w-[50%]">
-      <Image src={movie.srcImg} alt="poster" className="w-full h-auto" />
+    <Link href={""} className="advertising-card">
+      <Image src={movie.srcImg} alt="poster" className="advertising-image" />
       <div className="text-white absolute left-2 bottom-2">
         <p className="text-[17px]">{movie.name}</p>
         <p className="text-[13px]">{movie.yearOfRelease}</p>
@@ -19,7 +20,7 @@ const AdvertisingCard: FC<AdvertisingCardProps> = ({ movie }) => {
           HD VIETSUB
         </span>
       </div>
-    </div>
+    </Link>
   );
 };
 

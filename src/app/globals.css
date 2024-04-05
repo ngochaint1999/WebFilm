@@ -34,7 +34,32 @@
 }
 .image-movie {
   transition: 0.7s ease;
-  transform: scale(1);
+  transform: scale(1.01);
+  height: auto;
+  object-fit: cover;
+}
+.icon-rating {
+  margin-right: 4px;
+}
+.advertising-card {
+  position: relative;
+}
+
+.advertising-image {
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  height: auto;
+}
+
+.recommend-card {
+  background: rgba(15, 15, 15, 0.9);
+}
+.recommend-card:hover {
+  background: #000;
+}
+
+.recommend-card:hover .icon-rating {
+  color: #408bea;
 }
 
 .text-clamp {
@@ -46,17 +71,31 @@
 .btn-play {
   position: absolute;
   top: 40%;
-  left: 40%;
+  left: 34%;
   display: none;
 }
-.container {
-  width: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
 
-  @media (min-width: 1600px) {
-    max-width: 1300px;
-  }
+.swiper-pagination {
+  position: relative;
+  transition: 300ms opacity;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  margin-top: 30px;
+}
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 40px;
+  background: gray;
+  margin-right: 8px;
+}
+.swiper-pagination-bullet-active {
+  background: #fff;
+  border-radius: 40px;
+  height: 8px;
+  width: 40px;
 }
