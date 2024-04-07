@@ -12,7 +12,7 @@ const IntroduceCard: FC<IntroduceCardProps> = (props) => {
   const { srcImg, name, year } = props;
   return (
     <Link href={""}>
-      <div className="relative mb-5 mt-[50px] w-[300px] overflow-hidden">
+      <div className="relative mb-5 mt-[50px] w-full overflow-hidden">
         <Image
           src={srcImg}
           alt="poster"

@@ -118,9 +118,15 @@ const MobileMenu = ({}: {}) => {
 
   return (
     <>
-      <button className="block lg:hidden" onClick={() => setOpenMenu(true)}>
-        <FaAlignJustify className="text-white text-2xl" />
-      </button>
+      <div className="flex items-center lg:hidden">
+        <button className="mr-5">
+          <FaSearch className="text-white text-2xl" />
+        </button>
+        <button onClick={() => setOpenMenu(true)}>
+          <FaAlignJustify className="text-white text-2xl" />
+        </button>
+      </div>
+
       <div
         className={`fixed inset-0 left-0 z-40 duration-300 ${
           openMenu
@@ -226,8 +232,8 @@ const MobileMenu = ({}: {}) => {
 
 const Navbar = () => {
   return (
-    <header className="border-b border-black py-4 px-4 sm:px-10 bg-primary w-full min-h-[70px] fixed top-0 left-0 flex items-center z-50">
-      <div className="flex flex-wrap justify-between items-center gap-x-2 max-lg:gap-y-6 w-full max-w-7xl mx-auto">
+    <header className="border-b border-black py-4 px-4 sm:px-10 bg-primary w-full min-h-[70px] fixed top-0  right-0 flex items-center z-50">
+      <div className="flex flex-wrap justify-between items-center gap-x-2 max-lg:gap-y-6 w-full container mx-auto">
         <div className="flex items-center">
           <p className="text-white">Logo</p>
           <div
@@ -247,7 +253,7 @@ const Navbar = () => {
                     {item.type === "dropdown" ? (
                       <div
                         className="
-                  invisible absolute z-50 top-[52px] max-w-[500px] w-full grid grid-cols-3 bg-black/80 
+                  invisible absolute z-50 top-[52px] max-w-[500px] w-full grid grid-cols-3 bg-black/80
                   py-1 px-4 text-gray-800 shadow-xl group-hover:visible text-sm rounded-md gap-2"
                       >
                         {item.childs.map((child) => (
@@ -286,6 +292,23 @@ const Navbar = () => {
             <FaSearch className="text-white text-xl" />
           </button>
         </form>
+        {/* <div className="lg:hidden block w-full fixed top-[70px] left-0 bg-primary h-[100px]">
+          <button>
+            <FiX className="text-white text-2xl" />
+          </button>
+          <form className="w-full h-10 p-2.5">
+            <input
+              type="text"
+              placeholder="Tìm kiếm..."
+              className="h-10 w-full px-[15px] rounded bg-secondary placeholder:text-whiteLight"
+            />
+
+            <button type="submit" className="absolute top-[24%] right-3">
+              <FaSearch className="text-white text-xl" />
+            </button>
+          </form>
+        </div> */}
+
         {/* Mobile */}
         <MobileMenu />
       </div>

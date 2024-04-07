@@ -22,7 +22,7 @@ const MovieCard: FC<MovieCardProps> = ({ movie }) => {
         <Image src={movie.origin_url} alt="poster" className="image-movie" />
 
         <div className="absolute left-2 bottom-2 bg-blue pb-[5px] px-2.5">
-          <span className="text-white uppercase text-[10px] tracking-wider font-medium">
+          <span className="text-white uppercase md:text-[10px] text-[8px] tracking-wider font-medium">
             HD VIETSUB
           </span>
         </div>

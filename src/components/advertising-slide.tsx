@@ -14,22 +14,18 @@ const AdvertisingSlide: FC<AdvertisingSlideProps> = ({
   slidesPerView = 2,
 }) => {
   return (
-    <div className="max-w-[800px] mx-auto">
+    <div className="max-w-[800px]">
       <Swiper
         pagination={{
           clickable: true,
         }}
         breakpoints={{
           0: {
-            spaceBetween: 15,
-            slidesPerView: 1,
-            slidesPerGroup: 1,
-          },
-          576: {
             spaceBetween: 10,
             slidesPerView: 1,
             slidesPerGroup: 1,
           },
+          
           640: {
             spaceBetween: 10,
             slidesPerView: 1,

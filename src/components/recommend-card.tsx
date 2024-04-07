@@ -10,7 +10,7 @@ type RecommendCardProps = {
 
 const RecommendCard: FC<RecommendCardProps> = ({ movie }) => {
   return (
-    <div className="flex mb-2.5 w-[300px] recommend-card">
+    <div className="flex mb-2.5 w-full recommend-card">
       <Image
         src={movie.srcImg}
         alt="poster"
