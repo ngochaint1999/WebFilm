@@ -6,19 +6,19 @@ import NavbarMobile from "./navbar-mobile";
 const data = [
   {
     title: "Xemphim",
-    url: "#",
+    url: "/",
     type: "item",
     childs: [],
   },
   {
     title: "Phim bộ",
-    url: "#",
+    url: "/phim-bo",
     type: "item",
     childs: [],
   },
   {
     title: "Phim lẻ",
-    url: "#",
+    url: "/phim-le",
     type: "item",
     childs: [],
   },
@@ -76,7 +76,7 @@ const data = [
 
 const Navbar = () => {
   return (
-    <header className="border-b border-black py-4 px-4 sm:px-10 bg-primary w-full min-h-[70px] fixed top-0  right-0 flex items-center z-50">
+    <header className="border-b border-black py-4 px-4 sm:px-10 bg-primary w-full fixed top-0  right-0 flex items-center z-50 min-h-[72.5px]">
       <div className="flex flex-wrap justify-between items-center gap-x-2 max-lg:gap-y-6 container !w-full mx-auto">
         <div className="flex items-center">
           <p className="text-white">Logo</p>

@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,13 @@ export default function RootLayout({
     <html lang="en" className="bg-secondary !scroll-smooth">
       <body className={`${inter.className}`}>
         <Navbar />
-        {children}
+        <div className="bg-primary mt-[74px] container w-full">
+          <p className="text-center py-3 border border-yellow-600 text-white text-sm">
+            Xem phim miễn phí chất lượng cao - Xemphim
+          </p>
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -232,48 +232,42 @@ export default function Home() {
     { _id: "12", title: "2013" },
   ];
   return (
-    <main className="lg:flex min-h-screen flex-col items-center bg-secondary">
-      <div className="bg-primary mt-[74px] container w-full">
-        <p className="text-center py-3 border border-yellow-600 text-white text-sm">
-          Xem phim miễn phí chất lượng cao - Xemphim
-        </p>
-        {/* Quảng cáo  */}
+    <main className="lg:flex min-h-screen flex-col items-center">
+      {/* Quảng cáo  */}
 
-        <div className="lg:flex justify-between block">
-          <div className="w-full md:basis-2/3 lg:basis-2/3 xl:basis-2/3 2xl:basis-2/3 h-full border-r-[1px] border-gray p-[30px]">
-            <AdvertisingSlide movies={AdvertisingData} />
-            <MovieCategory title="Phim mới nổi bật" movies={FeaturedData} />
-            <MovieCategory
-              title="Phim chiếu rạp mới cập nhật"
-              movies={FeaturedData}
-            />
-            <MovieCategory title="Phim bộ mới cập nhật" movies={FeaturedData} />
-            <MovieCategory title="Phim lẻ mới cập nhật" movies={FeaturedData} />
-            <NewsCategory title="Tin tức" news={NewsData} />
-          </div>
-          <div className="md:block md:basis-1/3 p-[30px]">
-            <p className="text-[17px] text-whiteLight mb-[15px]">
-              Năm phát hành
-            </p>
-            <div className="grid grid-rows-4 grid-flow-col gap-2">
-              {yearData.map((item) => (
-                <Link
-                  href={""}
-                  key={item._id}
-                  className="flex justify-center text-[13px] bg-primary text-whiteLight py-1 hover:bg-blue hover:text-white"
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-
-            <IntroduceCard srcImg={Introduce} name="Độc chiến 2" year="2023" />
-            {RecommendData.map((item, index) => (
-              <RecommendCard key={index} movie={item} />
+      <div className="lg:flex justify-between block">
+        <div className="w-full md:basis-2/3 lg:basis-2/3 xl:basis-2/3 2xl:basis-2/3 h-full border-r-[1px] border-gray p-[30px]">
+          <AdvertisingSlide movies={AdvertisingData} />
+          <MovieCategory title="Phim mới nổi bật" movies={FeaturedData} />
+          <MovieCategory
+            title="Phim chiếu rạp mới cập nhật"
+            movies={FeaturedData}
+          />
+          <MovieCategory title="Phim bộ mới cập nhật" movies={FeaturedData} />
+          <MovieCategory title="Phim lẻ mới cập nhật" movies={FeaturedData} />
+          <NewsCategory title="Tin tức" news={NewsData} />
+        </div>
+        <div className="md:block md:basis-1/3 p-[30px]">
+          <p className="text-[17px] text-whiteLight mb-[15px]">
+            Năm phát hành
+          </p>
+          <div className="grid grid-rows-4 grid-flow-col gap-2">
+            {yearData.map((item) => (
+              <Link
+                href={""}
+                key={item._id}
+                className="flex justify-center text-[13px] bg-primary text-whiteLight py-1 hover:bg-blue hover:text-white"
+              >
+                {item.title}
+              </Link>
             ))}
           </div>
+
+          <IntroduceCard srcImg={Introduce} name="Độc chiến 2" year="2023" />
+          {RecommendData.map((item, index) => (
+            <RecommendCard key={index} movie={item} />
+          ))}
         </div>
-        <Footer />
       </div>
     </main>
   );
