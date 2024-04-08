@@ -144,12 +144,6 @@ export default function Home() {
       srcImg: Advertising,
     },
     {
-      _id: "4",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-    {
       _id: "5",
       name: "Bhakshak: Tội lỗi làm ngơ",
       yearOfRelease: "2023",
@@ -173,38 +167,54 @@ export default function Home() {
       yearOfRelease: "2023",
       srcImg: Advertising,
     },
+    {
+      _id: "9",
+      name: "Bhakshak: Tội lỗi làm ngơ",
+      yearOfRelease: "2023",
+      srcImg: Advertising,
+    },
   ];
 
   const NewsData: News[] = [
     {
       _id: "1",
-      title: "Top 12 phim ngôn tình Trung Quốc hay không nên bỏ qua",
+      day: 8,
+      month: 'April',
+      title: "Top 10 bộ phim Hàn Quốc hay nhất mọi thời đại",
       description:
-        "List những bộ phim ngôn tình Trung Quốc lãng mạn sẽ khiến tâm hồn bạn trở nên ngọt ngào. Tham khảo ngay top phim tình cảm Trung Quốc đã được phimmoi liệt kê bên dưới nhé! Thầm",
+        "Đây là một chủ đề phổ biến và luôn thu hút lượt truy cập cao. Bạn có thể tổng hợp danh sách phim dựa trên các tiêu chí như đánh giá của các nhà phê bình, lượt xem trên các nền tảng trực tuyến, hoặc ý kiến của khán giả. Hãy nhớ đưa ra những thông tin thú vị và hấp dẫn về từng bộ phim, chẳng hạn như nội dung tóm tắt, dàn diễn viên, đạo diễn, giải thưởng đạt được, v.v.",
     },
     {
       _id: "2",
-      title: "Top 10 bộ phim hay nhất mà bạn nên xem một lần trong đời",
+      day: 8,
+      month: 'April',
+      title: "Những bộ phim Việt Nam hay nhất năm 2024",
       description:
-        "Phim truyện là một lĩnh vực rộng lớn, có rất nhiều thể loại phim với nhưng nội dung và ý nghĩa khác nhau. Xem phim không chỉ để giải trí, mà mỗi bộ phim còn đem lại những ý",
+        "Đây là cơ hội để bạn giới thiệu những tác phẩm điện ảnh mới nhất và chất lượng nhất của Việt Nam đến với khán giả. Hãy chọn lọc những bộ phim có nội dung hấp dẫn, diễn xuất tốt và được đánh giá cao bởi các nhà phê bình. Bạn cũng có thể so sánh các bộ phim này với nhau để tạo sự thu hút cho bài viết",
     },
     {
       _id: "3",
-      title: "Top 10 bộ phim hay nhất mà bạn nên xem một lần trong đời",
+      day: 3,
+      month: 'April',
+      title: "Những bộ phim Hollywood hot nhất hiện nay",
       description:
-        "Netflix vừa công bố số liệu thống kê hàng tuần cho bộ phim và chương trình truyền hình ăn khách nhất trên nền tảng này. Những năm trước, Netflix thường không chia sẻ số lượng",
+        "Nắm bắt xu hướng phim ảnh Hollywood là điều cần thiết để thu hút lượt truy cập cho trang web của bạn. Hãy giới thiệu những bộ phim bom tấn mới nhất, những dự án được mong chờ, và những diễn viên nổi tiếng. Bạn cũng có thể chia sẻ những thông tin hậu trường thú vị về các bộ phim này.",
     },
     {
       _id: "4",
-      title: "Top 10 bộ phim hay nhất mà bạn nên xem một lần trong đời",
+      day: 2,
+      month: 'April',
+      title: "Bí mật đằng sau những cảnh quay ấn tượng nhất của điện ảnh",
       description:
-        "Netflix vừa công bố số liệu thống kê hàng tuần cho bộ phim và chương trình truyền hình ăn khách nhất trên nền tảng này. Những năm trước, Netflix thường không chia sẻ số lượng",
+        "Khán giả luôn tò mò về cách thức các nhà làm phim tạo ra những cảnh quay đẹp mắt và ấn tượng. Hãy viết bài viết này để hé lộ những bí mật đằng sau các kỹ thuật quay phim, hiệu ứng đặc biệt, và công nghệ CGI. Bạn cũng có thể chia sẻ những câu chuyện thú vị về quá trình quay phim của các bộ phim nổi tiếng.",
     },
     {
       _id: "5",
-      title: "Top 10 bộ phim hay nhất mà bạn nên xem một lần trong đời",
+      day: 2,
+      month: 'April',
+      title: "Giải mã những chi tiết ẩn trong phim",
       description:
-        "Netflix vừa công bố số liệu thống kê hàng tuần cho bộ phim và chương trình truyền hình ăn khách nhất trên nền tảng này. Những năm trước, Netflix thường không chia sẻ số lượng",
+        "Nhiều bộ phim có những chi tiết ẩn mà có thể không phải khán giả nào cũng nhận ra. Hãy viết bài viết để giải mã những chi tiết này, giúp khán giả hiểu rõ hơn về nội dung phim và ý đồ của đạo diễn.",
     },
   ];
   const yearData = [

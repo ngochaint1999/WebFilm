@@ -10,7 +10,7 @@ type AdvertisingCardProps = {
 const AdvertisingCard: FC<AdvertisingCardProps> = ({ movie }) => {
   return (
     <Link href={""} className="advertising-card">
-      <Image src={movie.srcImg} alt="poster" className="advertising-image" />
+      <Image priority src={movie.srcImg} alt="poster" className="advertising-image" />
       <div className="text-white absolute left-2 bottom-2">
         <p className="text-[17px]">{movie.name}</p>
         <p className="text-[13px]">{movie.yearOfRelease}</p>

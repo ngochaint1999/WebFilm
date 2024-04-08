@@ -74,11 +74,9 @@ const Footer = () => {
     <footer className="p-10 md:block hidden">
       <div className="grid grid-rows-1 grid-flow-col gap-4 mb-10">
         <div className="text-[13px] text-gray">
-          <span className="text-blue">Xemphim</span> - Trang xem phim Online với
-          giao diện mới
-          <br /> được bố trí và thiết kế thân thiện với người dùng. Nguồn
-          <br /> phim được tổng hợp từ các website lớn với đa dạng các <br />
-          đầu phim và thể loại vô cùng phong phú.
+          <span className="text-blue">Xemphim</span> - Xem phim moi, phim online, phim HD,
+          <br /> phim mới nhất, phim lẻ, phim bộ, phim hoạt hình, <br />
+          phim Việt Nam, phim Hollywood...
         </div>
         <div>
           <h3 className="text-white text-[15px]">Phim mới</h3>

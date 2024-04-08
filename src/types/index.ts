@@ -9,6 +9,8 @@ export type News = {
   _id: string;
   title: string;
   description: string;
+  day: number;
+  month: string;
 };
 
 export type RecommendMovie = {
