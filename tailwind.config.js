@@ -1,4 +1,8 @@
-/** @type {import('tailwindcss').Config} */
+/**
+ * @format
+ * @type {import('tailwindcss').Config}
+ */
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -19,11 +23,13 @@ module.exports = {
         primary: "rgba(15,15,15,.9)",
         secondary: "#424040",
         yellow: "#e4d804",
+        gray: "#ffffff14",
       },
       colors: {
         blue: "#408BEA",
         gray: "rgba(255,255,255,.2)",
         whiteLight: "rgba(255,255,255,.8)",
+        text: "#ffffff99",
       },
     },
   },

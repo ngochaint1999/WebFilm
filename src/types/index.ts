@@ -1,3 +1,5 @@
+/** @format */
+
 export type Movie = {
   _id: string;
   name: string;

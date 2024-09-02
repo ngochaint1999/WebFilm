@@ -1,15 +1,17 @@
+/** @format */
+
 import MovieCategory from "@/components/movie-category";
 import NewsCategory from "@/components/news-category";
-import RecommendCard from "@/components/recommend-card";
+import RightContent from "@/components/right-content";
 import AdvertisingSlide from "@/components/advertising-slide";
-import IntroduceCard from "@/components/introduce-card";
+
 import { AdvertisingMovie, Movie, News, RecommendMovie } from "@/types";
 import OnePiece from "@/assets/one-piece.jpg";
-import Thumbnail from "@/assets/movie.jpg";
+
 import Advertising from "@/assets/advertising.jpg";
-import Introduce from "@/assets/introduce.jpg";
-import Footer from "@/components/footer";
-import Link from "next/link";
+
+import MovieDetail from "@/components/movie-detail";
+import Summary from "@/components/summary";
 
 export default function Home() {
   const FeaturedData: Movie[] = [
@@ -74,50 +76,7 @@ export default function Home() {
       origin_url: OnePiece,
     },
   ];
-  const RecommendData: RecommendMovie[] = [
-    {
-      _id: "1",
-      name: "Nam Lai Bắc Vãng",
-      yearOfRelease: "2023",
-      rating: "4.9",
-      srcImg: Thumbnail,
-    },
-    {
-      _id: "2",
-      name: "Nam Lai Bắc Vãng",
-      yearOfRelease: "2023",
-      rating: "4.9",
-      srcImg: Thumbnail,
-    },
-    {
-      _id: "3",
-      name: "Nam Lai Bắc Vãng",
-      yearOfRelease: "2023",
-      rating: "4.9",
-      srcImg: Thumbnail,
-    },
-    {
-      _id: "4",
-      name: "Nam Lai Bắc Vãng",
-      yearOfRelease: "2023",
-      rating: "4.9",
-      srcImg: Thumbnail,
-    },
-    {
-      _id: "5",
-      name: "Nam Lai Bắc Vãng",
-      yearOfRelease: "2023",
-      rating: "4.9",
-      srcImg: Thumbnail,
-    },
-    {
-      _id: "6",
-      name: "Nam Lai Bắc Vãng",
-      yearOfRelease: "2023",
-      rating: "4.9",
-      srcImg: Thumbnail,
-    },
-  ];
+
   const AdvertisingData: AdvertisingMovie[] = [
     {
       _id: "1",
@@ -179,7 +138,7 @@ export default function Home() {
     {
       _id: "1",
       day: 8,
-      month: 'April',
+      month: "April",
       title: "Top 10 bộ phim Hàn Quốc hay nhất mọi thời đại",
       description:
         "Đây là một chủ đề phổ biến và luôn thu hút lượt truy cập cao. Bạn có thể tổng hợp danh sách phim dựa trên các tiêu chí như đánh giá của các nhà phê bình, lượt xem trên các nền tảng trực tuyến, hoặc ý kiến của khán giả. Hãy nhớ đưa ra những thông tin thú vị và hấp dẫn về từng bộ phim, chẳng hạn như nội dung tóm tắt, dàn diễn viên, đạo diễn, giải thưởng đạt được, v.v.",
@@ -187,7 +146,7 @@ export default function Home() {
     {
       _id: "2",
       day: 8,
-      month: 'April',
+      month: "April",
       title: "Những bộ phim Việt Nam hay nhất năm 2024",
       description:
         "Đây là cơ hội để bạn giới thiệu những tác phẩm điện ảnh mới nhất và chất lượng nhất của Việt Nam đến với khán giả. Hãy chọn lọc những bộ phim có nội dung hấp dẫn, diễn xuất tốt và được đánh giá cao bởi các nhà phê bình. Bạn cũng có thể so sánh các bộ phim này với nhau để tạo sự thu hút cho bài viết",
@@ -195,7 +154,7 @@ export default function Home() {
     {
       _id: "3",
       day: 3,
-      month: 'April',
+      month: "April",
       title: "Những bộ phim Hollywood hot nhất hiện nay",
       description:
         "Nắm bắt xu hướng phim ảnh Hollywood là điều cần thiết để thu hút lượt truy cập cho trang web của bạn. Hãy giới thiệu những bộ phim bom tấn mới nhất, những dự án được mong chờ, và những diễn viên nổi tiếng. Bạn cũng có thể chia sẻ những thông tin hậu trường thú vị về các bộ phim này.",
@@ -203,7 +162,7 @@ export default function Home() {
     {
       _id: "4",
       day: 2,
-      month: 'April',
+      month: "April",
       title: "Bí mật đằng sau những cảnh quay ấn tượng nhất của điện ảnh",
       description:
         "Khán giả luôn tò mò về cách thức các nhà làm phim tạo ra những cảnh quay đẹp mắt và ấn tượng. Hãy viết bài viết này để hé lộ những bí mật đằng sau các kỹ thuật quay phim, hiệu ứng đặc biệt, và công nghệ CGI. Bạn cũng có thể chia sẻ những câu chuyện thú vị về quá trình quay phim của các bộ phim nổi tiếng.",
@@ -211,7 +170,7 @@ export default function Home() {
     {
       _id: "5",
       day: 2,
-      month: 'April',
+      month: "April",
       title: "Giải mã những chi tiết ẩn trong phim",
       description:
         "Nhiều bộ phim có những chi tiết ẩn mà có thể không phải khán giả nào cũng nhận ra. Hãy viết bài viết để giải mã những chi tiết này, giúp khán giả hiểu rõ hơn về nội dung phim và ý đồ của đạo diễn.",
@@ -232,11 +191,11 @@ export default function Home() {
     { _id: "12", title: "2013" },
   ];
   return (
-    <main className="lg:flex min-h-screen flex-col items-center">
+    <main className="lg:flex min-h-screen flex-col">
       {/* Quảng cáo  */}
 
       <div className="lg:flex justify-between block">
-        <div className="w-full md:basis-2/3 lg:basis-2/3 xl:basis-2/3 2xl:basis-2/3 h-full border-r-[1px] border-gray p-[30px]">
+        <div className="w-full md:basis-2/3 lg:basis-2/3 xl:basis-2/3 2xl:basis-2/3 h-full border-r-[1px] border-gray p-[30px] pl-[-30px]">
           <AdvertisingSlide movies={AdvertisingData} />
           <MovieCategory title="Phim mới nổi bật" movies={FeaturedData} />
           <MovieCategory
@@ -246,27 +205,11 @@ export default function Home() {
           <MovieCategory title="Phim bộ mới cập nhật" movies={FeaturedData} />
           <MovieCategory title="Phim lẻ mới cập nhật" movies={FeaturedData} />
           <NewsCategory title="Tin tức" news={NewsData} />
+          <MovieDetail />
+          <Summary content="Vụ Sơn Phái và Yêu Tộc vì ân oán từ hàng trăm năm trước mà không ngừng xung đột. Bạch Hồ Tố Tố được giao nhiệm vụ xâm nhập vào Vụ Sơn Phái để cướp lấy viên Đan Luyện Yêu mà Chưởng môn Vụ Sơn Phái An Xích Tiêu đã nỗ lực nghiên cứu để tẩy sạch yêu khí. Tuy nhiên, tai nạn bất ngờ ập tới, Tố Tố đã hấp thụ viên Đan Luyện Yêu, sức mạnh trong cơ thể bị loạn lạc, đánh mất trí nhớ. Cô được thần y Vô Ưu Trại là Hà An Sinh cứu sống. Trong hành trình tìm kiếm danh tính và ký ức, Hà Anh Sinh hiền lành thật thà và cô nương thân thế bí ẩn là Tiểu Bạch (Tố Tố) dần phải lòng nhau. Trong khi đó, viên Đan Luyện Yêu trong cơ thể Tố Tố lại đang tiến tới ranh giới mất kiểm soát. Liệu danh tính thực sự của Tố Tố sẽ bị tiết lộ? Người và yêu có thể đi chung một con đường? Và liệu sau hàng nghìn năm xa cách, giữa người và yêu có được hòa bình chăng?" />
         </div>
         <div className="md:block md:basis-1/3 p-[30px]">
-          <p className="text-[17px] text-whiteLight mb-[15px]">
-            Năm phát hành
-          </p>
-          <div className="grid grid-rows-4 grid-flow-col gap-2">
-            {yearData.map((item) => (
-              <Link
-                href={""}
-                key={item._id}
-                className="flex justify-center text-[13px] bg-primary text-whiteLight py-1 hover:bg-blue hover:text-white"
-              >
-                {item.title}
-              </Link>
-            ))}
-          </div>
-
-          <IntroduceCard srcImg={Introduce} name="Độc chiến 2" year="2023" />
-          {RecommendData.map((item, index) => (
-            <RecommendCard key={index} movie={item} />
-          ))}
+          <RightContent />
         </div>
       </div>
     </main>

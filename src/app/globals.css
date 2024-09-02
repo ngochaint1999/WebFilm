@@ -1,3 +1,5 @@
+/** @format */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,8 +23,6 @@
   background: #52525b;
   border-radius: 3px;
 }
-
-
 
 .container {
   width: auto;
@@ -124,4 +124,31 @@
   border-radius: 40px;
   height: 8px;
   width: 40px;
+}
+.heading-archive {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.heading-archive::before {
+  background-color: rgba(255, 255, 255, 0.08);
+  content: "";
+  display: inline-block;
+  height: 3px;
+  position: relative;
+  vertical-align: middle;
+  width: 30%;
+
+  /* margin-left: -30%; */
+}
+.heading-archive::after {
+  background-color: rgba(255, 255, 255, 0.08);
+  content: "";
+  display: inline-block;
+  height: 3px;
+  position: relative;
+  vertical-align: middle;
+  width: 30%;
+
+  /* margin-right: -30%; */
 }
