@@ -1,13 +1,15 @@
+/** @format */
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar";
 
 import "./globals.css";
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,6 +37,7 @@ export default function RootLayout({
             Xem phim miễn phí chất lượng cao - Xemphim
           </p>
           {children}
+          <hr className="border border-gray mt-2.5" />
           <Footer />
         </div>
       </body>

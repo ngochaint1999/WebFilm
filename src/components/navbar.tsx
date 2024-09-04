@@ -1,3 +1,5 @@
+/** @format */
+
 import Link from "next/link";
 import React from "react";
 import { FaSearch } from "react-icons/fa";
@@ -137,7 +139,6 @@ const Navbar = () => {
           </button>
         </form>
 
-        {/* Mobile */}
         <NavbarMobile />
       </div>
     </header>

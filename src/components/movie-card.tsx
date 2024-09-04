@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 import { Movie } from "@/types";
 import { FC } from "react";
@@ -7,17 +9,20 @@ import Image from "next/image";
 
 type MovieCardProps = {
   movie: Movie;
+  isOutstanding?: boolean;
 };
 
-const MovieCard: FC<MovieCardProps> = ({ movie }) => {
+const MovieCard: FC<MovieCardProps> = ({ movie, isOutstanding = false }) => {
   return (
     <Link href={""}>
       <div className="relative movie-card">
-        <div className="absolute top-0 left-0 bg-[#ff2a2a] pb-[5px] px-2.5 z-50">
-          <span className="uppercase text-white text-[10px] tracking-wider font-medium">
-            Nổi bật
-          </span>
-        </div>
+        {isOutstanding && (
+          <div className="absolute top-0 left-0 bg-[#ff2a2a] pb-[5px] px-2.5 z-50">
+            <span className="uppercase text-white text-[10px] tracking-wider font-medium">
+              Nổi bật
+            </span>
+          </div>
+        )}
 
         <Image src={movie.origin_url} alt="poster" className="image-movie" />
 

@@ -2,9 +2,9 @@
 
 "use client";
 import Link from "next/link";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { notFound, usePathname, useSearchParams } from "next/navigation";
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import { FaCaretRight, FaCaretLeft } from "react-icons/fa6";
 
 type PaginationProps = {
   currentPage: number;
@@ -28,42 +28,44 @@ export const Pagination: FC<PaginationProps> = (props) => {
   if (currentPage > totalPages) notFound();
 
   return (
-    <ul className="flex mt-20 font-medium justify-start pl-[30px]">
-      {currentPage > 1 && (
-        <Link
-          href={`${currentRoute}page=${currentPage - 1}`}
-          className="px-2 py-1.5 flex items-center justify-center text-white border border-collapse duration-300 border-r-0 hover:bg-primary hover:text-black hover:border-primary"
-        >
-          <FaAngleLeft height={24} />
-        </Link>
-      )}
-      {new Array(5).fill("").map((_, idx) => {
-        const page = currentPage + idx - 2;
-        return (
-          <div className="flex" key={idx}>
-            {page > 0 && page <= totalPages && (
-              <Link
-                href={`${currentRoute}page=${page}`}
-                className={`px-4 py-1.5 border border-r-0 border-collapse duration-300 hover:bg-primary hover:text-black hover:border-primary ${
-                  currentPage === page
-                    ? "bg-primary text-black border-primary"
-                    : ""
-                }`}
-              >
-                {page}
-              </Link>
-            )}
-          </div>
-        );
-      })}
-      {currentPage < totalPages && (
-        <Link
-          href={`${currentRoute}page=${currentPage + 1}`}
-          className="px-2 py-1.5 items-center justify-center text-white border border-collapse duration-300 hover:bg-primary hover:text-black hover:border-primary"
-        >
-          <FaAngleRight height={24} />
-        </Link>
-      )}
-    </ul>
+    <React.Fragment>
+      <ul className="flex gap-2 mt-20 font-medium items-center justify-start pl-[30px]">
+        {currentPage > 1 && (
+          <Link
+            href={`${currentRoute}page=${currentPage - 1}`}
+            className="px-2 py-1.5 flex items-center justify-center h-[30px] rounded-[3px] text-white border border-[#000] duration-300  hover:bg-primary hover:text-[#408BEA] hover:border-primary"
+          >
+            <FaCaretLeft className="text-sm" />
+          </Link>
+        )}
+        {new Array(5).fill("").map((_, idx) => {
+          const page = currentPage + idx - 2;
+          return (
+            <div className="" key={idx}>
+              {page > 0 && page <= totalPages && (
+                <Link
+                  href={`${currentRoute}page=${page}`}
+                  className={`px-2.5 py-1.5 border border-[#000] h-[30px]  rounded-[3px] text-sm duration-300 hover:bg-primary hover:text-[#408BEA] hover:border-primary ${
+                    currentPage === page
+                      ? "bg-primary text-[#408BEA]"
+                      : "text-white border-secondary border"
+                  }`}
+                >
+                  {page}
+                </Link>
+              )}
+            </div>
+          );
+        })}
+        {currentPage < totalPages && (
+          <Link
+            href={`${currentRoute}page=${currentPage + 1}`}
+            className="px-2 py-1.5 items-center justify-center h-[30px] rounded-[3px] text-white border border-[#000] duration-300 hover:bg-primary hover:text-[#408BEA] hover:border-primary"
+          >
+            <FaCaretRight className="text-sm" />
+          </Link>
+        )}
+      </ul>
+    </React.Fragment>
   );
 };

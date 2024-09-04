@@ -1,21 +1,26 @@
 /** @format */
 
-import { Metadata } from "next";
-import React from "react";
 import MoviePagination from "@/components/movie-pagination";
 import { Pagination } from "@/components/pagination";
+import OnePiece from "@/assets/one-piece.jpg";
 import { notFound } from "next/navigation";
 
-import Advertising from "@/assets/advertising.jpg";
-import OnePiece from "@/assets/one-piece.jpg";
-import { AdvertisingMovie, Movie } from "@/types";
+import { Movie } from "@/types";
 
-export const metadata: Metadata = {
-  title: "Phim bộ",
+type MoviesYearContext = {
+  params: { type: string };
+  searchParams: {
+    page: string;
+  };
 };
 
-const PhimBoPage = () => {
-  const data: Movie[] = [
+export default async function MoviesYear(context: MoviesYearContext) {
+  const {
+    params: { type },
+    searchParams: { page = 1 },
+  } = context;
+
+  const movieGenre: Movie[] = [
     {
       _id: "1",
       name: "Đảo hải tặc",
@@ -64,20 +69,13 @@ const PhimBoPage = () => {
       yearOfRelease: "2023",
       origin_url: OnePiece,
     },
-    {
-      _id: "9",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
   ];
-  if (!data) return notFound();
+  if (!movieGenre) return notFound();
+
   return (
     <main>
-      <MoviePagination movies={data} title={"Phim bộ"} type={true} />
+      <MoviePagination movies={movieGenre} title={"2024"} />
       <Pagination currentPage={2} totalItems={5} totalItemsPerPage={1} />
     </main>
   );
-};
-
-export default PhimBoPage;
+}

@@ -6,6 +6,12 @@ export type Movie = {
   yearOfRelease: string;
   origin_url: any;
 };
+export type Person = {
+  _id: string;
+  name: string;
+  avt: any;
+  sub: string;
+};
 
 export type News = {
   _id: string;

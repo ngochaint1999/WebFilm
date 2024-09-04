@@ -5,13 +5,10 @@ import NewsCategory from "@/components/news-category";
 import RightContent from "@/components/right-content";
 import AdvertisingSlide from "@/components/advertising-slide";
 
-import { AdvertisingMovie, Movie, News, RecommendMovie } from "@/types";
+import { AdvertisingMovie, Movie, News } from "@/types";
 import OnePiece from "@/assets/one-piece.jpg";
-
+import PerSonInfor from "@/components/person-infor";
 import Advertising from "@/assets/advertising.jpg";
-
-import MovieDetail from "@/components/movie-detail";
-import Summary from "@/components/summary";
 
 export default function Home() {
   const FeaturedData: Movie[] = [
@@ -205,8 +202,7 @@ export default function Home() {
           <MovieCategory title="Phim bộ mới cập nhật" movies={FeaturedData} />
           <MovieCategory title="Phim lẻ mới cập nhật" movies={FeaturedData} />
           <NewsCategory title="Tin tức" news={NewsData} />
-          <MovieDetail />
-          <Summary content="Vụ Sơn Phái và Yêu Tộc vì ân oán từ hàng trăm năm trước mà không ngừng xung đột. Bạch Hồ Tố Tố được giao nhiệm vụ xâm nhập vào Vụ Sơn Phái để cướp lấy viên Đan Luyện Yêu mà Chưởng môn Vụ Sơn Phái An Xích Tiêu đã nỗ lực nghiên cứu để tẩy sạch yêu khí. Tuy nhiên, tai nạn bất ngờ ập tới, Tố Tố đã hấp thụ viên Đan Luyện Yêu, sức mạnh trong cơ thể bị loạn lạc, đánh mất trí nhớ. Cô được thần y Vô Ưu Trại là Hà An Sinh cứu sống. Trong hành trình tìm kiếm danh tính và ký ức, Hà Anh Sinh hiền lành thật thà và cô nương thân thế bí ẩn là Tiểu Bạch (Tố Tố) dần phải lòng nhau. Trong khi đó, viên Đan Luyện Yêu trong cơ thể Tố Tố lại đang tiến tới ranh giới mất kiểm soát. Liệu danh tính thực sự của Tố Tố sẽ bị tiết lộ? Người và yêu có thể đi chung một con đường? Và liệu sau hàng nghìn năm xa cách, giữa người và yêu có được hòa bình chăng?" />
+          <PerSonInfor />
         </div>
         <div className="md:block md:basis-1/3 p-[30px]">
           <RightContent />
