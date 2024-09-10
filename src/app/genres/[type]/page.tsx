@@ -2,10 +2,10 @@
 
 import MoviePagination from "@/components/movie-pagination";
 import { Pagination } from "@/components/pagination";
-import OnePiece from "@/assets/one-piece.jpg";
-import { notFound } from "next/navigation";
+import { baseUrl } from "@/constants";
+import { useFetchConfig } from "@/hooks/useFetch";
 
-import { Movie } from "@/types";
+import { notFound } from "next/navigation";
 
 type MoviesGenreContext = {
   params: { type: string };
@@ -20,62 +20,38 @@ export default async function MoviesGenre(context: MoviesGenreContext) {
     searchParams: { page = 1 },
   } = context;
 
-  const movieGenre: Movie[] = [
-    {
-      _id: "1",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "2",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "3",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "4",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "5",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "6",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "7",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "8",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-  ];
-  if (!movieGenre) return notFound();
+  const { data } = await useFetchConfig(
+    `/v1/api/the-loai/${type}?page=${page}`
+  );
+  if (!data) return notFound();
 
   return (
     <main>
-      <MoviePagination movies={movieGenre} title={"Phim tình cảm"} />
-      <Pagination currentPage={2} totalItems={5} totalItemsPerPage={1} />
+      <MoviePagination movies={data.items} title={data.titlePage} />
+      <Pagination {...data.params.pagination} />
     </main>
   );
+}
+export async function generateMetadata(context: MoviesGenreContext) {
+  const {
+    params: { type },
+    searchParams: { page },
+  } = context;
+  const response = await fetch(
+    `${baseUrl}/v1/api/the-loai/${type}?page=${page}`
+  );
+  const data = await response.json();
+  if (!data.data) {
+    return {
+      title: "Not Found",
+      description: "The page is not found.",
+      urlPath: `/genres/${type}`,
+    };
+  }
+  const genre = data.data.titlePage.replace("Phim", "");
+  return {
+    title: `Phim ${genre}`,
+    description: `Kho phim ${genre} chọn lọc chất lượng cao hay nhất. Được cập nhật liên tục để phục vụ các mọt phim.`,
+    urlPath: `/genres/${type}`,
+  };
 }

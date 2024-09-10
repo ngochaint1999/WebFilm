@@ -1,13 +1,15 @@
+/** @format */
+
 import React from "react";
 import Link from "next/link";
 
 const NotFound = () => {
   return (
     <div className="min-h-screen flex items-center justify-center flex-col px-4">
-      <h2 className="text-5xl font-extrabold md:text-9xl">
+      <h2 className="text-5xl font-extrabold md:text-9xl text-white">
         4<span className="text-primary">0</span>4
       </h2>
-      <h3 className="text-3xl font-bold my-1 text-center">
+      <h3 className="text-3xl font-bold my-1 text-center text-white">
         Oops! Trang không tồn tại
       </h3>
       <Link

@@ -6,130 +6,18 @@ import RightContent from "@/components/right-content";
 import AdvertisingSlide from "@/components/advertising-slide";
 
 import { AdvertisingMovie, Movie, News } from "@/types";
-import OnePiece from "@/assets/one-piece.jpg";
+
 import PerSonInfor from "@/components/person-infor";
 import Advertising from "@/assets/advertising.jpg";
+import { useFetch } from "@/hooks";
+import { useFetchFloating } from "@/hooks/useFetch";
 
-export default function Home() {
-  const FeaturedData: Movie[] = [
-    {
-      _id: "1",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "2",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "3",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "4",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "5",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "6",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "7",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "8",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "9",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "10",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-  ];
-
-  const AdvertisingData: AdvertisingMovie[] = [
-    {
-      _id: "1",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-    {
-      _id: "2",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-    {
-      _id: "3",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-    {
-      _id: "4",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-    {
-      _id: "5",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-    {
-      _id: "6",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-    {
-      _id: "7",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-    {
-      _id: "8",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-    {
-      _id: "9",
-      name: "Bhakshak: Tội lỗi làm ngơ",
-      yearOfRelease: "2023",
-      srcImg: Advertising,
-    },
-  ];
+export default async function Home() {
+  const movies = await Promise.all([
+    useFetch("/v1/api/danh-sach/phim-le"),
+    useFetch("/v1/api/danh-sach/phim-bo"),
+  ]);
+  const FloatMovies = await useFetchFloating("/danh-sach/phim-moi-cap-nhat");
 
   const NewsData: News[] = [
     {
@@ -173,36 +61,37 @@ export default function Home() {
         "Nhiều bộ phim có những chi tiết ẩn mà có thể không phải khán giả nào cũng nhận ra. Hãy viết bài viết để giải mã những chi tiết này, giúp khán giả hiểu rõ hơn về nội dung phim và ý đồ của đạo diễn.",
     },
   ];
-  const yearData = [
-    { _id: "1", title: "2024" },
-    { _id: "2", title: "2023" },
-    { _id: "3", title: "2022" },
-    { _id: "4", title: "2021" },
-    { _id: "5", title: "2020" },
-    { _id: "6", title: "2019" },
-    { _id: "7", title: "2018" },
-    { _id: "8", title: "2017" },
-    { _id: "9", title: "2016" },
-    { _id: "10", title: "2015" },
-    { _id: "11", title: "2014" },
-    { _id: "12", title: "2013" },
-  ];
+
   return (
     <main className="lg:flex min-h-screen flex-col">
       {/* Quảng cáo  */}
 
       <div className="lg:flex justify-between block">
         <div className="w-full md:basis-2/3 lg:basis-2/3 xl:basis-2/3 2xl:basis-2/3 h-full border-r-[1px] border-gray p-[30px] pl-[-30px]">
-          <AdvertisingSlide movies={AdvertisingData} />
-          <MovieCategory title="Phim mới nổi bật" movies={FeaturedData} />
+          <AdvertisingSlide movies={FloatMovies.items} />
           <MovieCategory
-            title="Phim chiếu rạp mới cập nhật"
-            movies={FeaturedData}
+            title="Phim mới nổi bật"
+            movies={FloatMovies.items}
+            pathAll=""
           />
-          <MovieCategory title="Phim bộ mới cập nhật" movies={FeaturedData} />
-          <MovieCategory title="Phim lẻ mới cập nhật" movies={FeaturedData} />
+          {/* <MovieCategory
+            title="Phim chiếu rạp mới cập nhật"
+            movies={movies[1].items}
+            pathAll=""
+          /> */}
+          <MovieCategory
+            title="Phim bộ mới cập nhật"
+            movies={movies[1].data.items}
+            pathAll="/phim-bo"
+            isNew={true}
+          />
+          <MovieCategory
+            title="Phim lẻ mới cập nhật"
+            movies={movies[0].data.items}
+            pathAll="/phim-lẻ"
+            isNew={true}
+          />
           <NewsCategory title="Tin tức" news={NewsData} />
-          <PerSonInfor />
         </div>
         <div className="md:block md:basis-1/3 p-[30px]">
           <RightContent />

@@ -2,10 +2,11 @@
 
 import MoviePagination from "@/components/movie-pagination";
 import { Pagination } from "@/components/pagination";
-import OnePiece from "@/assets/one-piece.jpg";
+
 import { notFound } from "next/navigation";
 
-import { Movie } from "@/types";
+import { useFetchConfig } from "@/hooks/useFetch";
+import { baseUrl } from "@/constants";
 
 type MoviesYearContext = {
   params: { type: string };
@@ -19,63 +20,37 @@ export default async function MoviesYear(context: MoviesYearContext) {
     params: { type },
     searchParams: { page = 1 },
   } = context;
-
-  const movieGenre: Movie[] = [
-    {
-      _id: "1",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "2",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "3",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "4",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "5",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "6",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "7",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "8",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-  ];
-  if (!movieGenre) return notFound();
-
+  const { data } = await useFetchConfig(
+    `/v1/api/danh-sach/phim-moi?year=${type}&page=${page}`
+  );
+  if (!data) return notFound();
   return (
     <main>
-      <MoviePagination movies={movieGenre} title={"2024"} />
+      <MoviePagination movies={data.items} title={type} />
       <Pagination currentPage={2} totalItems={5} totalItemsPerPage={1} />
     </main>
   );
+}
+export async function generateMetadata(context: MoviesYearContext) {
+  const {
+    params: { type },
+    searchParams: { page },
+  } = context;
+  const response = await fetch(
+    `${baseUrl}/v1/api/phim-moi?page=${page}&year=${type}`
+  );
+  const data = await response.json();
+  if (!data.data) {
+    return {
+      title: "Not Found",
+      description: "The page is not found.",
+      urlPath: `/years/${type}`,
+    };
+  }
+
+  return {
+    title: `Phim ${type}`,
+    description: `Kho phim ${type} chọn lọc chất lượng cao hay nhất. Được cập nhật liên tục để phục vụ các mọt phim.`,
+    urlPath: `/years/${type}`,
+  };
 }

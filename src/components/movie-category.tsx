@@ -15,10 +15,11 @@ type MovieCategoryProps = {
   title?: string;
   slidesPerView?: number;
   isNew?: boolean;
+  pathAll: string;
 };
 
 const MovieCategory: FC<MovieCategoryProps> = (props) => {
-  const { title, movies, slidesPerView = 5, isNew = false } = props;
+  const { title, movies, pathAll, slidesPerView = 5, isNew = false } = props;
 
   const swiperRef = useRef<SwiperCore>();
 
@@ -28,31 +29,33 @@ const MovieCategory: FC<MovieCategoryProps> = (props) => {
         <h3 className="text-xl md:text-xl text-white pl-2.5 border-l-4 border-[#408bea]">
           {title}
         </h3>
-        {!isNew && (
-          <div className="flex items-center justify-end">
+
+        <div className="flex items-center justify-end">
+          {isNew && (
             <Link
-              href={""}
+              href={pathAll}
               className="text-white text-[10px] uppercase bg-blue font-light py-[3px] px-2 rounded mr-2.5 text-center"
             >
               Xem thêm
             </Link>
-            <div className="flex items-center  text-white">
-              <button
-                className="py-1.5"
-                onClick={() => swiperRef.current?.slidePrev()}
-              >
-                <FaCaretLeft className="text-2xl" />
-              </button>
+          )}
 
-              <button
-                className="py-1.5"
-                onClick={() => swiperRef.current?.slideNext()}
-              >
-                <FaCaretRight className="text-2xl" />
-              </button>
-            </div>
+          <div className="flex items-center  text-white">
+            <button
+              className="py-1.5"
+              onClick={() => swiperRef.current?.slidePrev()}
+            >
+              <FaCaretLeft className="text-2xl" />
+            </button>
+
+            <button
+              className="py-1.5"
+              onClick={() => swiperRef.current?.slideNext()}
+            >
+              <FaCaretRight className="text-2xl" />
+            </button>
           </div>
-        )}
+        </div>
       </div>
       <Swiper
         loop={true}
@@ -82,7 +85,7 @@ const MovieCategory: FC<MovieCategoryProps> = (props) => {
           },
         }}
       >
-        {movies.map((item) => (
+        {movies?.map((item) => (
           <SwiperSlide key={item._id}>
             <MovieCard movie={item} />
           </SwiperSlide>

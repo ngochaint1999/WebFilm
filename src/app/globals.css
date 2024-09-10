@@ -9,6 +9,11 @@
     @apply bg-gray h-px;
   }
 }
+@layer components {
+  .dropdown-menu {
+    @apply grid grid-cols-4 w-max gap-y-4 gap-x-6 absolute right-1/2 top-0 translate-x-1/2 bg-black/95 p-4 rounded text-xs opacity-0 pointer-events-none duration-150 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:top-8 before:absolute before:h-3 before:w-16 before:right-1/2 before:translate-x-1/2 before:-top-3 group-hover:text-white;
+  }
+}
 
 ::-webkit-scrollbar {
   height: 4px;
@@ -22,6 +27,77 @@
 ::-webkit-scrollbar-thumb {
   background: #52525b;
   border-radius: 3px;
+}
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
 
 .container {
@@ -63,6 +139,14 @@
   transform: scale(1.01);
   height: auto;
   object-fit: cover;
+  height: 200px;
+  width: 140px;
+}
+.image-movie-item {
+  object-fit: cover;
+  height: 110x;
+  width: 110px;
+  overflow: hidden;
 }
 .icon-rating {
   margin-right: 4px;

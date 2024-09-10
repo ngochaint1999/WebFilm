@@ -1,12 +1,14 @@
+/** @format */
+
 "use client";
 import React, { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import AdvertisingCard from "@/components/advertising-card";
 import { Pagination } from "swiper/modules";
-import { AdvertisingMovie } from "@/types";
+import { Movie } from "@/types";
 
 type AdvertisingSlideProps = {
-  movies: AdvertisingMovie[];
+  movies: Movie[];
   slidesPerView?: number;
 };
 const AdvertisingSlide: FC<AdvertisingSlideProps> = ({
@@ -25,7 +27,7 @@ const AdvertisingSlide: FC<AdvertisingSlideProps> = ({
             slidesPerView: 1,
             slidesPerGroup: 1,
           },
-          
+
           640: {
             spaceBetween: 10,
             slidesPerView: 1,

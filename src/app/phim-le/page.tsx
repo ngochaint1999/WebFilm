@@ -1,82 +1,45 @@
 /** @format */
 
-import { Movie } from "@/types";
-import { Metadata } from "next";
-import OnePiece from "@/assets/one-piece.jpg";
-import { notFound } from "next/navigation";
 import React from "react";
 import MoviePagination from "@/components/movie-pagination";
-import Advertising from "@/assets/advertising.jpg";
 import { Pagination } from "@/components/pagination";
+import { notFound } from "next/navigation";
+import { useFetch } from "@/hooks";
 
-export const metadata: Metadata = {
-  title: "Phim lẻ",
+type PhimLePageProps = {
+  searchParams: {
+    page: string;
+  };
 };
 
-const PhimLePage = () => {
-  const data: Movie[] = [
-    {
-      _id: "1",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "2",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "3",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "4",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "5",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "6",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "7",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "8",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-    {
-      _id: "9",
-      name: "Đảo hải tặc",
-      yearOfRelease: "2023",
-      origin_url: OnePiece,
-    },
-  ];
+export default async function PhimLePage(context: PhimLePageProps) {
+  const {
+    searchParams: { page = 1 },
+  } = context;
+
+  const { data } = await useFetch(`/v1/api/danh-sach/phim-le?page=${page}`);
   if (!data) return notFound();
+
   return (
     <main>
-      <MoviePagination movies={data} title={"Phim lẻ"} type={true} />
-      <Pagination currentPage={2} totalItems={5} totalItemsPerPage={1} />
+      <MoviePagination
+        movies={data.items}
+        title={data.titlePage}
+        isAdver={true}
+        type={1}
+      />
+      <Pagination {...data.params.pagination} />
     </main>
   );
-};
+}
+export async function generateMetadata(context: PhimLePageProps) {
+  const {
+    searchParams: { page },
+  } = context;
 
-export default PhimLePage;
+  return {
+    title: `Phim Lẻ`,
+    description: `Kho phim lẻ chọn lọc chất lượng cao hay nhất. Được cập nhật liên tục để phục vụ các mọt phim.`,
+    urlPath: `/phim-le`,
+  };
+}
