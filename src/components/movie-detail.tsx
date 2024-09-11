@@ -6,6 +6,7 @@ import Summary from "./summary";
 import PerSonInfor from "./person-infor";
 import { Detail, Episode } from "@/types";
 import Link from "next/link";
+import dayjs from "dayjs";
 type MovieDetailProps = { movie: Detail };
 type ServerType = "art-player" | "anym" | "hlsplayer";
 const data = [
@@ -138,7 +139,9 @@ const MovieDetail: FC<MovieDetailProps> = ({ movie }) => {
           </span>
 
           <div className="flex items-center gap-5 text-text mt-2.5">
-            <span className="flex items-center gap-2">{"Feb. 06, 2024"}</span>
+            <span className="flex items-center gap-2">
+              {dayjs(movie.created.time).format("DD/MM/YYYY")}
+            </span>
             <span className="flex items-center gap-2">
               {movie.time || "Đang cập nhật"}
             </span>

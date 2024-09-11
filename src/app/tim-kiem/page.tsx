@@ -21,7 +21,7 @@ export default async function TimKiemPage(context: TimKiemPageProps) {
   } = context;
 
   const { data } = await useFetch(`/v1/api/tim-kiem?keyword=${q}&page=${page}`);
-  if (!data) return notFound();
+
   return (
     <main>
       <div className="lg:flex justify-between block">
@@ -29,7 +29,7 @@ export default async function TimKiemPage(context: TimKiemPageProps) {
           <h2 className="mt-10 capitalize text-xl font-bold mb-6 md:text-xl text-white pl-2.5 border-l-4 border-[#408bea]">
             {`Kết quả tìm kiếm`}
           </h2>
-          {data.items.length ? (
+          {data?.items?.length ? (
             <div>
               {data.items.map((movie: Movie) => (
                 <MovieItem movie={movie} key={movie._id} />
@@ -37,7 +37,7 @@ export default async function TimKiemPage(context: TimKiemPageProps) {
               <Pagination {...data.params.pagination} />
             </div>
           ) : (
-            <h5 className="font-bold text-2xl text-center min-h-screen">
+            <h5 className="font-bold text-2xl text-center min-h-screen text-white">
               Không tìm thấy phim phù hợp
             </h5>
           )}

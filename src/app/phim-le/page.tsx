@@ -4,7 +4,7 @@ import React from "react";
 import MoviePagination from "@/components/movie-pagination";
 import { Pagination } from "@/components/pagination";
 import { notFound } from "next/navigation";
-import { useFetch } from "@/hooks";
+import { useFetchConfig } from "@/hooks/useFetch";
 
 type PhimLePageProps = {
   searchParams: {
@@ -17,9 +17,10 @@ export default async function PhimLePage(context: PhimLePageProps) {
     searchParams: { page = 1 },
   } = context;
 
-  const { data } = await useFetch(`/v1/api/danh-sach/phim-le?page=${page}`);
+  const { data } = await useFetchConfig(
+    `/v1/api/danh-sach/phim-le?page=${page}`
+  );
   if (!data) return notFound();
-
   return (
     <main>
       <MoviePagination

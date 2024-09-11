@@ -23,9 +23,9 @@ const yearData = [
   { _id: "10", title: "2015" },
   { _id: "11", title: "2014" },
   { _id: "12", title: "2013" },
-  // { _id: "13", title: "2012" },
-  // { _id: "14", title: "2011" },
-  // { _id: "15", title: "2010" },
+  { _id: "13", title: "2012" },
+  { _id: "14", title: "2011" },
+  { _id: "15", title: "2010" },
 ];
 export default async function RightContent() {
   const movies = await useFetchFloating("/danh-sach/phim-moi-cap-nhat");
@@ -33,7 +33,7 @@ export default async function RightContent() {
   return (
     <React.Fragment>
       <p className="text-[17px] text-whiteLight mb-[15px]">Năm phát hành</p>
-      <div className="grid grid-rows-4 grid-flow-col gap-2">
+      <div className="grid grid-cols-3 gap-4">
         {yearData.map((item) => (
           <Link
             href={`/years/${item.title}`}
@@ -45,7 +45,12 @@ export default async function RightContent() {
         ))}
       </div>
 
-      <IntroduceCard srcImg={Introduce} name="Độc chiến 2" year="2023" />
+      <IntroduceCard
+        srcImg={movies.items[1].thumb_url}
+        name={movies.items[1].name}
+        year={movies.items[1].year}
+        path={movies.items[1].slug}
+      />
       {movies.items.map((item: Movie, index: number) => (
         <RecommendCard movie={item} key={index} />
       ))}

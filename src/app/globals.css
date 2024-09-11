@@ -144,7 +144,7 @@
 }
 .image-movie-item {
   object-fit: cover;
-  height: 110x;
+  height: 110px;
   width: 110px;
   overflow: hidden;
 }
@@ -235,4 +235,27 @@
   width: 30%;
 
   /* margin-right: -30%; */
+}
+.swiper-pagination {
+  position: absolute;
+
+  transition: 300ms opacity;
+  transform: translateX(-50%);
+  z-index: 10;
+  bottom: 6%;
+  left: 50%;
+}
+.swiper-pagination-bullet {
+  width: 16px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 40px;
+  background: #94a3b8;
+  margin-right: 8px;
+}
+.swiper-pagination-bullet-active {
+  background: #0036d9;
+  border-radius: 40px;
+  height: 8px;
+  width: 40px;
 }

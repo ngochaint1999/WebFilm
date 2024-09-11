@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import AdvertisingCard from "@/components/advertising-card";
 import { Pagination } from "swiper/modules";
 import { Movie } from "@/types";
+import "swiper/css";
 
 type AdvertisingSlideProps = {
   movies: Movie[];
