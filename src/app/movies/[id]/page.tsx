@@ -1,7 +1,6 @@
 /** @format */
 
 import MovieDetail from "@/components/movie-detail";
-import Summary from "@/components/summary";
 
 import { notFound } from "next/navigation";
 import ShareBtn from "@/components/share-btn";

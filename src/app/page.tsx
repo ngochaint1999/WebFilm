@@ -5,19 +5,17 @@ import NewsCategory from "@/components/news-category";
 import RightContent from "@/components/right-content";
 import AdvertisingSlide from "@/components/advertising-slide";
 
-import { AdvertisingMovie, Movie, News } from "@/types";
+import { News } from "@/types";
 
-import PerSonInfor from "@/components/person-infor";
-import Advertising from "@/assets/advertising.jpg";
-import { useFetch } from "@/hooks";
-import { useFetchFloating } from "@/hooks/useFetch";
+import { useFetchConfig } from "@/hooks/useFetch";
 
 export default async function Home() {
   const movies = await Promise.all([
-    useFetch("/v1/api/danh-sach/phim-le"),
-    useFetch("/v1/api/danh-sach/phim-bo"),
+    useFetchConfig("/v1/api/danh-sach/phim-moi"),
+
+    useFetchConfig("/v1/api/danh-sach/phim-le"),
+    useFetchConfig("/v1/api/danh-sach/phim-bo"),
   ]);
-  const FloatMovies = await useFetchFloating("/danh-sach/phim-moi-cap-nhat");
 
   const NewsData: News[] = [
     {
@@ -68,26 +66,26 @@ export default async function Home() {
 
       <div className="lg:flex justify-between block">
         <div className="w-full md:basis-2/3 lg:basis-2/3 xl:basis-2/3 2xl:basis-2/3 h-full border-r-[1px] border-gray p-[30px] pl-[-30px]">
-          <AdvertisingSlide movies={FloatMovies.items} />
+          <AdvertisingSlide movies={movies[0].data.items.slice()} />
           <MovieCategory
             title="Phim mới nổi bật"
-            movies={FloatMovies.items}
+            movies={movies[0].data.items}
             pathAll=""
           />
           {/* <MovieCategory
             title="Phim chiếu rạp mới cập nhật"
-            movies={movies[1].items}
+            movies={movies[1].data.items}
             pathAll=""
           /> */}
           <MovieCategory
             title="Phim bộ mới cập nhật"
-            movies={movies[1].data.items}
+            movies={movies[2].data.items}
             pathAll="/phim-bo"
             isNew={true}
           />
           <MovieCategory
             title="Phim lẻ mới cập nhật"
-            movies={movies[0].data.items}
+            movies={movies[1].data.items}
             pathAll="/phim-lẻ"
             isNew={true}
           />

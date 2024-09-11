@@ -237,24 +237,24 @@
   /* margin-right: -30%; */
 }
 .swiper-pagination {
-  position: absolute;
-
+  position: relative;
   transition: 300ms opacity;
   transform: translateX(-50%);
-  z-index: 10;
-  bottom: 6%;
+  display: flex;
+  justify-content: center;
   left: 50%;
+  margin-top: 30px;
 }
 .swiper-pagination-bullet {
-  width: 16px;
+  width: 8px;
   height: 8px;
   display: inline-block;
   border-radius: 40px;
-  background: #94a3b8;
+  background: gray;
   margin-right: 8px;
 }
 .swiper-pagination-bullet-active {
-  background: #0036d9;
+  background: #fff;
   border-radius: 40px;
   height: 8px;
   width: 40px;

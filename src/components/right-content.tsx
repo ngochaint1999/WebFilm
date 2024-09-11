@@ -8,7 +8,7 @@ import Introduce from "@/assets/introduce.jpg";
 
 import RecommendCard from "./recommend-card";
 
-import { useFetchFloating } from "@/hooks/useFetch";
+import { useFetchConfig } from "@/hooks/useFetch";
 import { Movie } from "@/types";
 const yearData = [
   { _id: "1", title: "2024" },
@@ -28,7 +28,7 @@ const yearData = [
   { _id: "15", title: "2010" },
 ];
 export default async function RightContent() {
-  const movies = await useFetchFloating("/danh-sach/phim-moi-cap-nhat");
+  const movies = await useFetchConfig("/v1/api/danh-sach/phim-moi");
 
   return (
     <React.Fragment>
@@ -46,12 +46,12 @@ export default async function RightContent() {
       </div>
 
       <IntroduceCard
-        srcImg={movies.items[1].thumb_url}
-        name={movies.items[1].name}
-        year={movies.items[1].year}
-        path={movies.items[1].slug}
+        srcImg={movies.data.items[1].thumb_url}
+        name={movies.data.items[1].name}
+        year={movies.data.items[1].year}
+        path={movies.data.items[1].slug}
       />
-      {movies.items.map((item: Movie, index: number) => (
+      {movies.data.items.slice(1, 11).map((item: Movie, index: number) => (
         <RecommendCard movie={item} key={index} />
       ))}
     </React.Fragment>
