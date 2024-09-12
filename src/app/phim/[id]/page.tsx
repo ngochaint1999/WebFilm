@@ -10,6 +10,7 @@ import React from "react";
 import RightContent from "@/components/right-content";
 import { useFetchConfig } from "@/hooks/useFetch";
 import { Category } from "@/types";
+import { baseUrl } from "@/constants";
 
 export const revalidate = 3600;
 
@@ -46,4 +47,25 @@ export default async function Movie(context: MovieContext) {
       </div>
     </React.Fragment>
   );
+}
+export async function generateMetadata(context: MovieContext) {
+  const {
+    params: { id },
+  } = context;
+  const response = await fetch(`${baseUrl}/v1/api/phim/${id}`);
+  const data = await response.json();
+
+  if (!data.data) {
+    return {
+      title: "Không tìm thấy",
+      description: "Không tìm thấy trang này.",
+      urlPath: `/phim/${id}`,
+    };
+  }
+
+  return {
+    title: `Phim ${id}`,
+    description: `Kho phim ${id} chọn lọc chất lượng cao hay nhất. Được cập nhật liên tục để phục vụ các mọt phim.`,
+    urlPath: `/phim/${id}`,
+  };
 }

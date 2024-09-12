@@ -14,7 +14,7 @@ type IntroduceCardProps = {
 const IntroduceCard: FC<IntroduceCardProps> = (props) => {
   const { srcImg, name, year, path } = props;
   return (
-    <Link href={`/movies/${path}`}>
+    <Link href={`/phim/${path}`}>
       <div className="relative mb-5 mt-[50px] w-full overflow-hidden">
         <img
           src={srcImg}

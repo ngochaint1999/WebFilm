@@ -71,7 +71,7 @@ const Navbar = () => {
                 {genres?.map((g: Category) => (
                   <Link
                     key={g.slug}
-                    href={`/genres/${g.slug}`}
+                    href={`/the-loai/${g.slug}`}
                     className="hover:text-primary duration-100"
                   >
                     {g.name}
@@ -85,7 +85,7 @@ const Navbar = () => {
                 {countries.map((c: Category) => (
                   <Link
                     key={c.slug}
-                    href={`/countries/${c.slug}`}
+                    href={`/quoc-gia/${c.slug}`}
                     className="hover:text-primary duration-100"
                   >
                     {c.name}

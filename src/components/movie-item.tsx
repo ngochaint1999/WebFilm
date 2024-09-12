@@ -10,7 +10,7 @@ type MovieCardProps = {
 };
 const MovieItem: FC<MovieCardProps> = ({ movie }) => {
   return (
-    <Link href={`/movies/${movie.slug}`}>
+    <Link href={`/phim/${movie.slug}`}>
       <div className="relative flex mt-2.5">
         <div
           className={`absolute top-0 left-0 ${

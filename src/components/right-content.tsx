@@ -36,7 +36,7 @@ export default async function RightContent() {
       <div className="grid grid-cols-3 gap-4">
         {yearData.map((item) => (
           <Link
-            href={`/years/${item.title}`}
+            href={`/nam-phat-hanh/${item.title}`}
             key={item._id}
             className="flex justify-center text-[13px] bg-primary text-whiteLight py-1 hover:bg-blue hover:text-white"
           >

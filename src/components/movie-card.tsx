@@ -15,7 +15,7 @@ type MovieCardProps = {
 
 const MovieCard: FC<MovieCardProps> = ({ movie, isOutstanding = false }) => {
   return (
-    <Link href={`/movies/${movie.slug}`}>
+    <Link href={`/phim/${movie.slug}`}>
       <div className="relative movie-card">
         {isOutstanding && (
           <div className="absolute top-0 left-0 bg-[#ff2a2a] pb-[5px] px-2.5 z-50">

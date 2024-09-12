@@ -43,15 +43,15 @@ export async function generateMetadata(context: MoviesGenreContext) {
   const data = await response.json();
   if (!data.data) {
     return {
-      title: "Not Found",
-      description: "The page is not found.",
-      urlPath: `/genres/${type}`,
+      title: "Không tìm thấy",
+      description: "Không tìm thấy trang này.",
+      urlPath: `/the-loai/${type}`,
     };
   }
   const genre = data.data.titlePage.replace("Phim", "");
   return {
     title: `Phim ${genre}`,
     description: `Kho phim ${genre} chọn lọc chất lượng cao hay nhất. Được cập nhật liên tục để phục vụ các mọt phim.`,
-    urlPath: `/genres/${type}`,
+    urlPath: `/the-loai/${type}`,
   };
 }

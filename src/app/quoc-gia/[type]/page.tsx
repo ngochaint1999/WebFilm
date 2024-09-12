@@ -43,15 +43,15 @@ export async function generateMetadata(context: MoviesCountryContext) {
   const data = await response.json();
   if (!data.data) {
     return {
-      title: "Not Found",
-      description: "The page is not found.",
-      urlPath: `/countries/${type}`,
+      title: "Không tìm thấy",
+      description: "Không tìm thấy trang này.",
+      urlPath: `/quoc-gia/${type}`,
     };
   }
 
   return {
     title: `Phim ${data.data.titlePage}`,
     description: `Kho phim ${data.data.titlePage} chọn lọc chất lượng cao hay nhất. Được cập nhật liên tục để phục vụ các mọt phim.`,
-    urlPath: `/countries/${type}`,
+    urlPath: `/quoc-gia/${type}`,
   };
 }

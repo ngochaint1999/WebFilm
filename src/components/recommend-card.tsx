@@ -14,7 +14,7 @@ type RecommendCardProps = {
 const RecommendCard: FC<RecommendCardProps> = ({ movie }) => {
   return (
     <Link
-      href={`/movies/${movie.slug}`}
+      href={`/phim/${movie.slug}`}
       className="flex mb-2.5 w-full recommend-card"
     >
       {/* <Image

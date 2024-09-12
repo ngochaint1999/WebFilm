@@ -12,7 +12,7 @@ type AdvertisingCardProps = {
 
 const AdvertisingCard: FC<AdvertisingCardProps> = ({ movie }) => {
   return (
-    <Link href={`/movies/${movie.slug}`} className="advertising-card">
+    <Link href={`/phim/${movie.slug}`} className="advertising-card">
       {/* <Image
         priority
         src={movie.srcImg}

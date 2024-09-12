@@ -42,15 +42,15 @@ export async function generateMetadata(context: MoviesYearContext) {
   const data = await response.json();
   if (!data.data) {
     return {
-      title: "Not Found",
-      description: "The page is not found.",
-      urlPath: `/years/${type}`,
+      title: "Không tìm thấy",
+      description: "Không tìm thấy trang này.",
+      urlPath: `/nam-phat-hanh/${type}`,
     };
   }
 
   return {
     title: `Phim ${type}`,
     description: `Kho phim ${type} chọn lọc chất lượng cao hay nhất. Được cập nhật liên tục để phục vụ các mọt phim.`,
-    urlPath: `/years/${type}`,
+    urlPath: `/nam-phat-hanh/${type}`,
   };
 }
